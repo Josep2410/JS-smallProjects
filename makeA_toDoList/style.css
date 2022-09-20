@@ -1,0 +1,18 @@
+#addItem{
+  background-color: rgb(4, 158, 253);
+  color: rgb(249, 249, 249);
+  border-style:none;
+  height:22px;
+  width:22px;
+  border-radius: 4px;
+}
+#addItem:hover{
+  cursor: pointer;
+}
+
+#inputBar{
+  padding-left:2px;
+  padding-top:2px;
+  padding-bottom:2px;
+  border-radius: 4px;
+}
