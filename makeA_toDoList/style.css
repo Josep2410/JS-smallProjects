@@ -10,6 +10,19 @@
   cursor: pointer;
 }
 
+#clearItems{
+  background-color: rgb(253, 4, 41);
+  color: rgb(249, 249, 249);
+  border-style:none;
+  height:22px;
+  width:50px;
+  border-radius: 4px;
+}
+
+#clearItems:hover{
+  cursor: pointer;
+}
+
 #inputBar{
   padding-left:2px;
   padding-top:2px;
