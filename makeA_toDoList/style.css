@@ -1,6 +1,7 @@
 #addItem{
   background-color: rgb(4, 158, 253);
   color: rgb(249, 249, 249);
+  font-size:15px;
   border-style:none;
   height:22px;
   width:22px;
@@ -33,4 +34,7 @@
 ul{
  margin-top: 5px;
  margin-left: -10px;
+}
+li{
+  list-style: none;
 }
