@@ -20,11 +20,11 @@ function addItemToList(){
 }
 
 
-document.querySelector("#clearItems").onclick = removeItems;
 
-function removeItems(){
-  /* const element =  document.querySelector("li");
- element.remove(); */
+
+function clearList(){
  myList.innerHTML= "";
 }
+
+
 
