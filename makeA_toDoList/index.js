@@ -1,8 +1,8 @@
 //keep in mind innerHTML is susceptible to malicious XSS attacks
 //can bypass by replacing 'innerHTML' with 'textContent'
 
+const myList = document.querySelector("#to-do-list");
 
-let planner = document.querySelector("#planner");
 
 document.getElementById("addItem").onclick = addItemToList;
 
@@ -12,24 +12,27 @@ document.body.addEventListener('keypress', function(e){
   }
 });
 
-const myList = document.querySelector("#to-do-list");
-
 function addItemToList(){
   const newInput = document.createElement("input");
-  newInput.type = 'radio';
   const newLabel = document.createElement("label");
-  newLabel.textContent = document.querySelector("#inputBar").value ;
+  const lineFiller = document.createElement("p");
+  newInput.type = 'checkbox';
+  lineFiller.style.margin = 0 + 'px';
+  
+  newLabel.textContent = document.querySelector("#inputBar").value;
+  
   myList.prepend(newLabel);
   myList.prepend(newInput);
-  
+  myList.prepend(lineFiller);
  
 }
 
-
-
-
 function clearList(){
  myList.innerHTML= "";
+}
+
+function submitItems(){
+
 }
 
 
