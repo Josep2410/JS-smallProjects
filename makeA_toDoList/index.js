@@ -2,9 +2,10 @@
 //can bypass by replacing 'innerHTML' with 'textContent'
 
 
+let planner = document.querySelector("#planner");
+
 document.getElementById("addItem").onclick = addItemToList;
 
-//add item to list when 'Enter' key is pressed
 document.body.addEventListener('keypress', function(e){
   if(e.key === 'Enter'){
     addItemToList();
@@ -14,9 +15,14 @@ document.body.addEventListener('keypress', function(e){
 const myList = document.querySelector("#to-do-list");
 
 function addItemToList(){
-  const newItem = document.createElement("li");
-  newItem.textContent = document.querySelector("#inputBar").value;
-  myList.prepend(newItem);
+  const newInput = document.createElement("input");
+  newInput.type = 'radio';
+  const newLabel = document.createElement("label");
+  newLabel.textContent = document.querySelector("#inputBar").value ;
+  myList.prepend(newLabel);
+  myList.prepend(newInput);
+  
+ 
 }
 
 
