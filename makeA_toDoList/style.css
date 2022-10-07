@@ -17,7 +17,8 @@ button{
   width:50px;
 }
 
-#submitItems{
+#submitBTN{
+  margin-top: 10px;
   background-color: green;
 }
 
@@ -29,14 +30,23 @@ button{
   border-radius: 4px;
 }
 
+
+
 ul{
- margin-top: 5px;
- margin-left: -10px;
+ margin-top: 0px;
+ margin-left: -35px;
 }
 li{
   list-style: none;
 }
 
+.container{
+  width:200px;
+  height:200px;
+  background-color: rgb(210, 208, 208);
+  margin-top: 10px;
+  border-radius: 5px;
+}
 
 
 
