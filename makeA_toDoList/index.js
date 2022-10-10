@@ -1,11 +1,12 @@
-//keep in mind innerHTML is susceptible to malicious XSS attacks
-//can bypass by replacing 'innerHTML' with 'textContent'
 
 const myList = document.querySelector("#to-do-list");
 const submitBTN = document.querySelector("#submitBTN");
-const submitList = document.querySelector("#submittedList")
+const submitList = document.querySelector("#submittedList");
+
+
 
 let numOfEntries = 0;
+
 
 document.getElementById("addItem").onclick = addItemToList;
 
@@ -17,8 +18,9 @@ document.body.addEventListener('keypress', function(e){
 
 function addItemToList(){
   numOfEntries++;
+ 
   
-  if(numOfEntries>9){
+  if(numOfEntries>9 ){
 
   }
   else{
@@ -33,9 +35,8 @@ function addItemToList(){
     myList.prepend(newLabel);
     myList.prepend(newInput);
     myList.prepend(lineFiller);
-    
-    const allLI = document.querySelectorAll("li");
-    submitBTN.addEventListener("click" , submitItems);
+   
+    submitBTN.addEventListener("click", submitItems);
     
   }
  
@@ -45,17 +46,24 @@ function addItemToList(){
 function clearList(){
  myList.innerHTML= "";
  numOfEntries = 0;
+ submitList.innerHTML = "";
 }
 
 function submitItems(){
+ 
   if(confirm("Are you ready to submit items?") == true){
+    
     window.alert("You said YES");
-  
+    const allLabels = document.querySelectorAll("label");
+
+    allLabels.forEach((item)=>{
+      const newItem = document.createElement("li");
+      newItem.textContent = item.textContent;
+      submitList.append(newItem);
+    })
+
   }
-  
-  
 
 }
 
-
-
+//need to work on styling when pasting
