@@ -51,9 +51,8 @@ function clearList(){
 
 function submitItems(){
  
-  if(confirm("Are you ready to submit items?") == true){
+  if(confirm("Are you sure to submit items?") == true){
     
-    window.alert("You said YES");
     const allLabels = document.querySelectorAll("label");
 
     allLabels.forEach((item)=>{
