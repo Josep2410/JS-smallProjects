@@ -65,13 +65,13 @@ function submitItems(){
  
   if(confirm("Submit items?") == true){
    
-    /* let allLabels = document.querySelectorAll('input:checked').valueOf;
+    let allLabels = document.querySelectorAll('input:checked').valueOf;
 
     allLabels.forEach((item)=>{
       const newItem = document.createElement("li");
       newItem.textContent = item.value;
       submitList.append(newItem);
-    }) */
+    })
   }
 
 }
