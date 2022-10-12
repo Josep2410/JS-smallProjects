@@ -23,14 +23,15 @@ document.body.addEventListener('keypress', function(e){
 function addItemToList(){
   numOfEntries++;
  
-  
   if(numOfEntries>9 ){
 
   }
   else{
+   
     const newInput = document.createElement("input");
     newInput.type = 'checkbox';
-    newInput.setAttribute("id", numOfEntries);
+    newInput.setAttribute("id", "sameID");
+    newInput.setAttribute("name", numOfEntries); 
     
 
     const newLabel = document.createElement("label");
@@ -44,15 +45,18 @@ function addItemToList(){
     myList.prepend(newLabel);
     myList.prepend(newInput);
     myList.prepend(lineFiller);
+    clearInputBar();  
    
    
     submitBTN.addEventListener("click", submitItems);
-      
-    
     
   }
  
  
+}
+
+function clearInputBar(){
+  document.querySelector("#inputBar").value = " ";
 }
 
 function clearList(){
@@ -65,9 +69,9 @@ function submitItems(){
  
   if(confirm("Submit items?") == true){
    
-    let allLabels = document.querySelectorAll('input:checked').valueOf;
+    let checkedItems = document.querySelectorAll('input:checked').value;
 
-    allLabels.forEach((item)=>{
+    checkedItems.forEach((item)=>{
       const newItem = document.createElement("li");
       newItem.textContent = item.value;
       submitList.append(newItem);
