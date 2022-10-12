@@ -56,27 +56,19 @@ function addItemToList(){
 }
 
 function clearInputBar(){
-  document.querySelector("#inputBar").value = " ";
+  document.querySelector("#inputBar").value = "";
 }
 
 function clearList(){
  myList.innerHTML= "";
  numOfEntries = 0;
  submitList.innerHTML = "";
+ clearInputBar();
 }
 
 function submitItems(){
  
-  if(confirm("Submit items?") == true){
-   
-    let checkedItems = document.querySelectorAll('input:checked').value;
-
-    checkedItems.forEach((item)=>{
-      const newItem = document.createElement("li");
-      newItem.textContent = item.value;
-      submitList.append(newItem);
-    })
-  }
+ 
 
 }
 
