@@ -69,9 +69,9 @@ function clearList(){
 
 function submitItems(){
  
-  if(window.confirm("Ready to submit items?")==true){
+  if(window.confirm("Submit items?")==true){
     let allChecked = document.querySelectorAll('input:checked');
-
+    
     allChecked.forEach(checked =>{
      
      let newItem = document.createElement("li");
