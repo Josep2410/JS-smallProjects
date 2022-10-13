@@ -20,7 +20,7 @@ button{
 #submitBTN{
   margin-top: 10px;
   background-color: green;
-  display:block;
+ 
 }
 
 
@@ -28,6 +28,7 @@ button{
   padding-left:5px;
   padding-top:2px;
   border-radius: 4px;
+  width:187px;
 }
 
 

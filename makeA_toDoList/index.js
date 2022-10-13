@@ -3,6 +3,7 @@ const myList = document.querySelector("#to-do-list");
 const submitBTN = document.querySelector("#submitBTN");
 const submitList = document.querySelector("#submittedList");
 const dateLine = document.querySelector("#dateContainer");
+const input = document.querySelector("#inputBar");
 const date = new Date();
 
 
@@ -30,8 +31,8 @@ function addItemToList(){
    
     const newInput = document.createElement("input");
     newInput.type = 'checkbox';
-    newInput.setAttribute("id", "sameID");
-    newInput.setAttribute("name", numOfEntries); 
+    newInput.setAttribute("id", numOfEntries);
+    newInput.setAttribute("value", input.value);
     
 
     const newLabel = document.createElement("label");
@@ -40,7 +41,7 @@ function addItemToList(){
    
     lineFiller.style.margin = 0 + 'px';
     
-    newLabel.textContent = document.querySelector("#inputBar").value;
+    newLabel.textContent = input.value;
     
     myList.prepend(newLabel);
     myList.prepend(newInput);
@@ -68,7 +69,17 @@ function clearList(){
 
 function submitItems(){
  
- 
+  if(window.confirm("Ready to submit items?")==true){
+    let allChecked = document.querySelectorAll('input:checked');
+
+    allChecked.forEach(checked =>{
+     
+     let newItem = document.createElement("li");
+     newItem.textContent = checked.value;
+     submitList.append(newItem);
+    })
+  }
+
 
 }
 
