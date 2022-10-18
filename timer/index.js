@@ -10,7 +10,6 @@ let secMode = false;
 let hours = 0;
 let minutes = 0; 
 let seconds = 0;
-let key = '000';
 
 startStop.addEventListener("click", function(){
   if(startStop.textContent == 'START'){
