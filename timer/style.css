@@ -69,8 +69,13 @@ button{
 }
 #on-off{
   height: 90%;
+  width:45px;
   font-size: 10px;
+  color: #02d202;
   border-radius: 50%;
   background-color: rgb(223, 222, 222);
+}
+#on-off:active , #operator:active {
+  background-color: rgb(164, 164, 164);
 }
 
