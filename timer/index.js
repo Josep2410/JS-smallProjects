@@ -1,4 +1,4 @@
-/* const startStop = document.querySelector("#on-off");
+const startStop = document.querySelector("#on-off");
 const hourBtn = document.querySelector(".hours");
 const minBtn = document.querySelector(".minutes");
 const secBtn = document.querySelector(".seconds");
@@ -21,30 +21,103 @@ startStop.addEventListener("click", ()=>{
 })
 
 hourBtn.addEventListener("click", ()=>{
+  if(myTimer.minMode==true){
+    myTimer.minMode = changeStatus(myTimer.minMode,minBtn);
+  }
+  if(myTimer.secMode==true){
+    myTimer.secMode = changeStatus(myTimer.secMode,secBtn);
+  }
+
+  myTimer.hrMode = changeStatus(myTimer.hrMode, hourBtn);
   myTimer.hrMode = getStatus(myTimer.hrMode);
   console.log(myTimer.hrMode);
 
-  upBtn.addEventListener("click", ()=>{
-    if(myTimer.hour=true){
-      myTimer.hours = increment(myTimer.hours);
+  upBtn.onclick = function(){
+    if(myTimer.hrMode ==true && myTimer.hours<99){
+    myTimer.hours = increment(myTimer.hours);
+    myTimer.minutes = pad(myTimer.minutes);
+    myTimer.seconds = pad(myTimer.seconds);
+    display.textContent = `${myTimer.hours}:${myTimer.minutes}:${myTimer.seconds}`;
+    }
+  }
+  downBtn.onclick = function(){
+    if(myTimer.hrMode ==true && myTimer.hours>0){
+      myTimer.hours = decrement(myTimer.hours);
+      myTimer.minutes = pad(myTimer.minutes);
+      myTimer.seconds = pad(myTimer.seconds);
       display.textContent = `${myTimer.hours}:${myTimer.minutes}:${myTimer.seconds}`;
-    }});
-   
-  
-  myTimer.hrMode = changeStatus(myTimer.hrMode, hourBtn);
-  console.log(myTimer.hrMode);
+    }
+  }
+});
+
+minBtn.addEventListener("click", ()=>{
+  if(myTimer.hrMode==true){
+    myTimer.hrMode = changeStatus(myTimer.hrMode,hourBtn);
+  }
+  if(myTimer.secMode==true){
+    myTimer.secMode = changeStatus(myTimer.secMode,secBtn);
+  }
+  myTimer.minMode = changeStatus(myTimer.minMode, minBtn);
+  myTimer.minMode = getStatus(myTimer.minMode);
+  console.log(myTimer.minMode);
+  upBtn.onclick = function(){
+    if(myTimer.minMode ==true && myTimer.minutes<99){
+    myTimer.minutes = increment(myTimer.minutes);
+    myTimer.hours = pad(myTimer.hours);
+    myTimer.seconds = pad(myTimer.seconds);
+    display.textContent = `${myTimer.hours}:${myTimer.minutes}:${myTimer.seconds}`;
+    }
+  }
+  downBtn.onclick = function(){
+    if(myTimer.minMode ==true && myTimer.minutes >0){
+      myTimer.minutes = decrement(myTimer.minutes);
+      myTimer.hours = pad(myTimer.hours);
+      myTimer.seconds = pad(myTimer.seconds);
+      display.textContent = `${myTimer.hours}:${myTimer.minutes}:${myTimer.seconds}`;
+    }
+  }
+});
+
+secBtn.addEventListener("click", ()=>{
+  if(myTimer.hrMode==true){
+    myTimer.hrMode = changeStatus(myTimer.hrMode,hourBtn);
+  }
+  if(myTimer.minMode==true){
+    myTimer.minMode = changeStatus(myTimer.minMode,minBtn);
+  }
+  myTimer.secMode = changeStatus(myTimer.secMode, secBtn);
+  myTimer.secMode = getStatus(myTimer.secMode);
+  console.log(myTimer.secMode);
+  upBtn.onclick = function(){
+    if(myTimer.secMode ==true && myTimer.seconds<99){
+    myTimer.seconds = increment(myTimer.seconds);
+    myTimer.hours = pad(myTimer.hours);
+    myTimer.minutes = pad(myTimer.minutes);
+    display.textContent = `${myTimer.hours}:${myTimer.minutes}:${myTimer.seconds}`;
+    }
+  }
+  downBtn.onclick = function(){
+    if(myTimer.secMode ==true && myTimer.seconds>0){
+
+      myTimer.seconds = decrement(myTimer.seconds);
+      myTimer.hours = pad(myTimer.hours);
+      myTimer.minutes = pad(myTimer.minutes);
+      display.textContent = `${myTimer.hours}:${myTimer.minutes}:${myTimer.seconds}`;
+    }
+  }
 });
 
 
-
 function increment(value){
-  ++value;
+  value++;
   value = pad(value);
   return value;
 }
 
-function decrement(){
-
+function decrement(value){
+  value--;
+  value = pad(value);
+  return value;
 }
 
 function getStatus(mode){
@@ -77,4 +150,4 @@ function changeText(txt){
 
 function pad(unit){
   return (("0") + unit).length > 2 ? unit : "0" + unit;
-} */
+}
