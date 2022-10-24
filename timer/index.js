@@ -8,6 +8,7 @@ const display = document.querySelector(".display");
 let hrs = 'hours';
 let min = 'minutes';
 let secs = 'seconds';
+let counter = 0;
 
 class Timer{
    hrMode = false;
@@ -20,9 +21,39 @@ class Timer{
 
 let myTimer = new Timer();
 
-startStop.addEventListener("click", ()=>{
-  changeText(startStop);
-})
+startStop.onclick = function(){
+  
+  if(myTimer.hrMode==true){
+    myTimer.hrMode = changeStatus(myTimer.hrMode, hourBtn);
+  }
+  if(myTimer.minMode==true){
+    myTimer.minMode = changeStatus(myTimer.minMode,minBtn);
+  }
+  if(myTimer.secMode==true){
+    myTimer.secMode = changeStatus(myTimer.secMode,secBtn);
+  }
+ 
+ startStop.textContent === 'START' ? boom = setInterval(countdown,1000) : clearInterval(boom);
+ changeText(startStop);
+ function countdown(){
+  myTimer.seconds=decrement(myTimer.seconds, secs);
+  if(myTimer.seconds== 59){
+    myTimer.minutes=decrement(myTimer.minutes, min);
+    if(myTimer.minutes==59){
+      myTimer.hours = decrement(myTimer.hours, hrs);
+    }
+  }
+  display.textContent = `${myTimer.hours}:${myTimer.minutes}:${myTimer.seconds}`;
+  if(display.textContent === '00:00:00'){
+    clearInterval(boom);
+    changeText(startStop);
+    window.alert("Boom. You're dead");
+  }
+  
+}
+}
+  
+
 
 hourBtn.addEventListener("click", ()=>{
   if(myTimer.minMode==true){
@@ -159,7 +190,6 @@ function changeText(txt){
   if(txt.textContent == 'START'){
     startStop.textContent = 'STOP';
     startStop.style.color = 'red';
-    countdown();
   }
   else{
     startStop.textContent ='START';
@@ -167,8 +197,8 @@ function changeText(txt){
   }
 }
 
-function countdown(){
 
-}
+
+
 
 
