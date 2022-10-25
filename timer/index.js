@@ -8,8 +8,6 @@ const display = document.querySelector(".display");
 let hrs = 'hours';
 let min = 'minutes';
 let secs = 'seconds';
-let counter = 0;
-
 class Timer{
    hrMode = false;
    minMode = false;
@@ -23,13 +21,13 @@ let myTimer = new Timer();
 
 startStop.onclick = function(){
   
-  if(myTimer.hrMode==true){
+  if(myTimer.hrMode){
     myTimer.hrMode = changeStatus(myTimer.hrMode, hourBtn);
   }
-  if(myTimer.minMode==true){
+  if(myTimer.minMode){
     myTimer.minMode = changeStatus(myTimer.minMode,minBtn);
   }
-  if(myTimer.secMode==true){
+  if(myTimer.secMode){
     myTimer.secMode = changeStatus(myTimer.secMode,secBtn);
   }
  
@@ -37,7 +35,7 @@ startStop.onclick = function(){
  changeText(startStop);
  function countdown(){
   myTimer.seconds=decrement(myTimer.seconds, secs);
-  if(myTimer.seconds== 59){
+  if(myTimer.seconds == 59){
     myTimer.minutes=decrement(myTimer.minutes, min);
     if(myTimer.minutes==59){
       myTimer.hours = decrement(myTimer.hours, hrs);
@@ -47,7 +45,7 @@ startStop.onclick = function(){
   if(display.textContent === '00:00:00'){
     clearInterval(boom);
     changeText(startStop);
-    window.alert("Boom. You're dead");
+    setTimeout(()=>window.alert("Boom. You're dead.", 2000));
   }
   
 }
@@ -56,10 +54,10 @@ startStop.onclick = function(){
 
 
 hourBtn.addEventListener("click", ()=>{
-  if(myTimer.minMode==true){
+  if(myTimer.minMode){
     myTimer.minMode = changeStatus(myTimer.minMode,minBtn);
   }
-  if(myTimer.secMode==true){
+  if(myTimer.secMode){
     myTimer.secMode = changeStatus(myTimer.secMode,secBtn);
   }
 
@@ -68,7 +66,7 @@ hourBtn.addEventListener("click", ()=>{
   console.log(myTimer.hrMode);
 
   upBtn.onclick = function(){
-    if(myTimer.hrMode ==true){
+    if(myTimer.hrMode ){
     myTimer.hours = increment(myTimer.hours, hrs);
     myTimer.minutes = pad(myTimer.minutes);
     myTimer.seconds = pad(myTimer.seconds);
@@ -76,7 +74,7 @@ hourBtn.addEventListener("click", ()=>{
     }
   }
   downBtn.onclick = function(){
-    if(myTimer.hrMode ==true){
+    if(myTimer.hrMode ){
       myTimer.hours = decrement(myTimer.hours, hrs);
       myTimer.minutes = pad(myTimer.minutes);
       myTimer.seconds = pad(myTimer.seconds);
@@ -114,17 +112,17 @@ minBtn.addEventListener("click", ()=>{
 });
 
 secBtn.addEventListener("click", ()=>{
-  if(myTimer.hrMode==true){
+  if(myTimer.hrMode){
     myTimer.hrMode = changeStatus(myTimer.hrMode, hourBtn);
   }
-  if(myTimer.minMode==true){
+  if(myTimer.minMode){
     myTimer.minMode = changeStatus(myTimer.minMode,minBtn);
   }
   myTimer.secMode = changeStatus(myTimer.secMode, secBtn);
   myTimer.secMode = getStatus(myTimer.secMode);
   console.log(myTimer.secMode);
   upBtn.onclick = function(){
-    if(myTimer.secMode ==true){
+    if(myTimer.secMode){
     myTimer.seconds = increment(myTimer.seconds, secs);
     myTimer.hours = pad(myTimer.hours);
     myTimer.minutes = pad(myTimer.minutes);
@@ -132,8 +130,7 @@ secBtn.addEventListener("click", ()=>{
     }
   }
   downBtn.onclick = function(){
-    if(myTimer.secMode ==true ){
-
+    if(myTimer.secMode ){
       myTimer.seconds = decrement(myTimer.seconds, secs);
       myTimer.hours = pad(myTimer.hours);
       myTimer.minutes = pad(myTimer.minutes);
@@ -172,7 +169,7 @@ function getStatus(mode){
 }
 
 function changeStatus(mode, btn){
-  if(mode == true){
+  if(mode ){
     btn.style.backgroundColor = '#dfdede'; //lighter
     return myTimer.mode = false;
   }
