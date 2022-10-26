@@ -5,6 +5,7 @@ const secBtn = document.querySelector(".seconds");
 const upBtn = document.querySelector("#up");
 const downBtn = document.querySelector("#down");
 const display = document.querySelector(".display");
+const clearBtn = document.querySelector("#clear");
 let hrs = 'hours';
 let min = 'minutes';
 let secs = 'seconds';
@@ -138,6 +139,14 @@ secBtn.addEventListener("click", ()=>{
     }
   }
 });
+
+clearBtn.addEventListener("click", ()=>{
+  myTimer.hours = 0;
+  myTimer.minutes = 0;
+  myTimer.seconds = 0;
+ 
+  display.textContent = `00:00:00`;
+})
 
 
 function increment(value, btn){
