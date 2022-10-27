@@ -6,6 +6,8 @@ const upBtn = document.querySelector("#up");
 const downBtn = document.querySelector("#down");
 const display = document.querySelector(".display");
 const clearBtn = document.querySelector("#clear");
+const keypadBtn = document.querySelector("#keypad-btn");
+const popUp = document.querySelectorAll(".popUp");
 let hrs = 'hours';
 let min = 'minutes';
 let secs = 'seconds';
@@ -19,6 +21,12 @@ class Timer{
 }
 
 let myTimer = new Timer();
+
+keypadBtn.addEventListener("click", function(){
+  popUp.forEach(element =>{
+    element.classList.toggle("show");
+  })
+})
 
 startStop.onclick = function(){
   
