@@ -136,7 +136,7 @@ button{
 .popUp{
   height: 0;
   overflow: hidden;
-  transition: 1s;
+  transition: 2s;
 }
 
 .show{
