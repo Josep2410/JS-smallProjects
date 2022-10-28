@@ -101,7 +101,7 @@ button{
   background-color: rgb(130, 1, 1);
 }
 
-#keypad-btn{
+#toggle_keypad{
   position: absolute;
   left: 450px;
   top: 20px;
@@ -110,7 +110,7 @@ button{
   background-color: rgb(231, 228, 228);
   color: rgb(22, 21, 21);
 }
-#keypad-btn:active{
+#toggle_keypad:active{
   background-color: rgb(160, 158, 158);
 }
 
@@ -131,6 +131,11 @@ button{
   top:180px;
   grid-template-columns: repeat(3, 75px);
  
+}
+
+#btn-0{
+  grid-column: -3 /-2 ;
+  grid-row: 4 / 5;
 }
 
 .popUp{
