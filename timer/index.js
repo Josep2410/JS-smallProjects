@@ -6,8 +6,12 @@ const upBtn = document.querySelector("#up");
 const downBtn = document.querySelector("#down");
 const display = document.querySelector(".display");
 const clearBtn = document.querySelector("#clear");
-const keypadBtn = document.querySelector("#keypad-btn");
+
+const keypadBtn = document.querySelector("#toggle_keypad");
 const popUp = document.querySelectorAll(".popUp");
+
+const allkeypadBtns = document.querySelectorAll(".keypad-btn");
+
 
 let hrs = 'hours';
 let min = 'minutes';
@@ -23,14 +27,16 @@ class Timer{
 
 let myTimer = new Timer();
 
+//Toggle keypad display
 keypadBtn.addEventListener("click", function(){
   popUp.forEach(element =>{
     element.classList.toggle("show");
   })
 })
 
+//when pressing Start/Stop btn, turn off Hrs, Min, & Sec ; 
+//& change text
 startStop.onclick = function(){
-  
   if(myTimer.hrMode){
     myTimer.hrMode = changeStatus(myTimer.hrMode, hourBtn);
   }
@@ -74,7 +80,7 @@ hourBtn.addEventListener("click", ()=>{
   myTimer.hrMode = changeStatus(myTimer.hrMode, hourBtn);
   myTimer.hrMode = getStatus(myTimer.hrMode);
   console.log(myTimer.hrMode);
-
+  
   upBtn.onclick = function(){
     if(myTimer.hrMode ){
     myTimer.hours = increment(myTimer.hours, hrs);
@@ -213,7 +219,12 @@ function changeText(txt){
 }
 
 
+function useKeypad(btn, value){
+  
 
+
+
+}
 
 
 
