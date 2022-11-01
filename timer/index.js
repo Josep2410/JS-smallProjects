@@ -6,6 +6,8 @@ const upBtn = document.querySelector("#up");
 const downBtn = document.querySelector("#down");
 const display = document.querySelector(".display");
 const clearBtn = document.querySelector("#clear");
+const audio = new Audio("audio/beep.mp3");
+const explosion = new Audio("audio/hq-explosion.mp3");
 
 const keypadBtn = document.querySelector("#toggle_keypad");
 const popUp = document.querySelectorAll(".popUp");
@@ -29,6 +31,7 @@ let myTimer = new Timer();
 
 //Toggle keypad display
 keypadBtn.addEventListener("click", function(){
+  audio.play();
   popUp.forEach(element =>{
     element.classList.toggle("show");
   })
@@ -37,6 +40,7 @@ keypadBtn.addEventListener("click", function(){
 //when pressing Start/Stop btn, turn off Hrs, Min, & Sec ; 
 //& change text
 startStop.onclick = function(){
+  audio.play();
   if(myTimer.hrMode){
     myTimer.hrMode = changeStatus(myTimer.hrMode, hourBtn);
   }
@@ -61,6 +65,7 @@ startStop.onclick = function(){
   if(display.textContent === '00:00:00'){
     clearInterval(boom);
     changeText(startStop);
+    explosion.play();
     setTimeout(()=>window.alert("Boom. You're dead.", 2000));
   }
   
@@ -70,6 +75,7 @@ startStop.onclick = function(){
 
 
 hourBtn.addEventListener("click", ()=>{
+  audio.play();
   if(myTimer.minMode){
     myTimer.minMode = changeStatus(myTimer.minMode,minBtn);
   }
@@ -81,8 +87,14 @@ hourBtn.addEventListener("click", ()=>{
   myTimer.hrMode = getStatus(myTimer.hrMode);
   console.log(myTimer.hrMode);
   
+  if(myTimer.hrMode){
+    useKeypad(myTimer.hours, hrs);
+  }
+
   upBtn.onclick = function(){
+    audio.play();
     if(myTimer.hrMode ){
+      
     myTimer.hours = increment(myTimer.hours, hrs);
     myTimer.minutes = pad(myTimer.minutes);
     myTimer.seconds = pad(myTimer.seconds);
@@ -90,6 +102,7 @@ hourBtn.addEventListener("click", ()=>{
     }
   }
   downBtn.onclick = function(){
+    audio.play();
     if(myTimer.hrMode ){
       myTimer.hours = decrement(myTimer.hours, hrs);
       myTimer.minutes = pad(myTimer.minutes);
@@ -100,6 +113,7 @@ hourBtn.addEventListener("click", ()=>{
 });
 
 minBtn.addEventListener("click", ()=>{
+  audio.play();
   if(myTimer.hrMode==true){
     myTimer.hrMode = changeStatus(myTimer.hrMode,hourBtn);
   }
@@ -109,7 +123,13 @@ minBtn.addEventListener("click", ()=>{
   myTimer.minMode = changeStatus(myTimer.minMode, minBtn);
   myTimer.minMode = getStatus(myTimer.minMode);
   console.log(myTimer.minMode);
+
+  if(myTimer.minMode){
+    useKeypad(myTimer.minutes, min);
+  }
+
   upBtn.onclick = function(){
+    audio.play();
     if(myTimer.minMode ==true ){
     myTimer.minutes = increment(myTimer.minutes, min);
     myTimer.hours = pad(myTimer.hours);
@@ -118,6 +138,7 @@ minBtn.addEventListener("click", ()=>{
     }
   }
   downBtn.onclick = function(){
+    audio.play();
     if(myTimer.minMode ==true ){
       myTimer.minutes = decrement(myTimer.minutes, min);
       myTimer.hours = pad(myTimer.hours);
@@ -128,6 +149,7 @@ minBtn.addEventListener("click", ()=>{
 });
 
 secBtn.addEventListener("click", ()=>{
+  audio.play();
   if(myTimer.hrMode){
     myTimer.hrMode = changeStatus(myTimer.hrMode, hourBtn);
   }
@@ -137,7 +159,13 @@ secBtn.addEventListener("click", ()=>{
   myTimer.secMode = changeStatus(myTimer.secMode, secBtn);
   myTimer.secMode = getStatus(myTimer.secMode);
   console.log(myTimer.secMode);
+  if(myTimer.secMode){
+    useKeypad(myTimer.seconds, secs);
+  }
+  
+
   upBtn.onclick = function(){
+    audio.play();
     if(myTimer.secMode){
     myTimer.seconds = increment(myTimer.seconds, secs);
     myTimer.hours = pad(myTimer.hours);
@@ -146,6 +174,7 @@ secBtn.addEventListener("click", ()=>{
     }
   }
   downBtn.onclick = function(){
+    audio.play();
     if(myTimer.secMode ){
       myTimer.seconds = decrement(myTimer.seconds, secs);
       myTimer.hours = pad(myTimer.hours);
@@ -156,6 +185,7 @@ secBtn.addEventListener("click", ()=>{
 });
 
 clearBtn.addEventListener("click", ()=>{
+  audio.play();
   myTimer.hours = 0;
   myTimer.minutes = 0;
   myTimer.seconds = 0;
@@ -219,10 +249,35 @@ function changeText(txt){
 }
 
 
-function useKeypad(btn, value){
-  
+function useKeypad(newValue, btnType){
+  let x ;
+  let y ;
+  switch(btnType){ //can prob use a double ternary operator for less lines...
+    case "hours":
+      x = 0;
+      y = 1;
+      break;
+    case "minutes": 
+      x = 3;
+      y = 4;
+      break;
+    case "seconds":
+      x = 6; 
+      y = 7;
+      break;
+  }
 
+  console.log(x, y);
+  allkeypadBtns.forEach(item =>{
+    item.addEventListener("click", function(){
+    newValue = item.value;
+    display.textContent.substring(x,y) = newValue;
+    })
+  })
 
+  function rotateHrs(){
+   return display.textContent.substring(6,7).length>1? display.textContent.substring(6,7): display.textContent;
+  }
 
 }
 
