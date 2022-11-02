@@ -63,9 +63,10 @@ startStop.onclick = function(){
   }
   display.textContent = `${myTimer.hours}:${myTimer.minutes}:${myTimer.seconds}`;
   if(display.textContent === '00:00:00'){
+    explosion.play();
     clearInterval(boom);
     changeText(startStop);
-    explosion.play();
+    
     setTimeout(()=>window.alert("Boom. You're dead.", 2000));
   }
   
