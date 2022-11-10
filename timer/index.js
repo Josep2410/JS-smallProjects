@@ -18,7 +18,7 @@ const allkeypadBtns = document.querySelectorAll(".keypad-btn");
 let hrs = 'hours';
 let min = 'minutes';
 let secs = 'seconds';
-class Timer{
+/* class Timer{
    hrMode = false;
    minMode = false;
    secMode = false;
@@ -26,8 +26,18 @@ class Timer{
    minutes = 0; 
    seconds = 0;
 }
+//Using Timer class
+let myTimer = new Timer(); */
 
-let myTimer = new Timer();
+//Creating an object same as class 'Timer'
+let myTimer = {
+  hrMode : false,
+  minMode : false,
+  secMode : false,
+  hours : 0,
+  minutes : 0, 
+  seconds : 0,
+}
 
 //Toggle keypad display
 keypadBtn.addEventListener("click", function(){
@@ -226,11 +236,11 @@ function getStatus(mode){
 function changeStatus(mode, btn){
   if(mode ){
     btn.style.backgroundColor = '#dfdede'; //lighter
-    return myTimer.mode = false;
+    return !myTimer.mode ;
   }
   else{
     btn.style.backgroundColor = '#a4a4a4'; //darker
-   return myTimer.mode = true;
+   return !myTimer.mode;
   }
 }
 
