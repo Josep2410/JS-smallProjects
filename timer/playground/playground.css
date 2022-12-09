@@ -1,0 +1,27 @@
+body{
+  text-align: center;
+}
+
+
+img{
+  height: 100px;
+}
+.show-img{
+  visibility: visible;
+  z-index: 99;
+}
+
+
+.p-hide{
+visibility: hidden;
+}
+
+
+.p-show{
+  visibility: visible;
+}
+
+.hide-img{
+  visibility: hidden;
+  z-index: -99;
+}
