@@ -1,0 +1,49 @@
+body{
+  text-align: center;
+}
+button{
+  margin: 40px;
+  cursor: pointer;
+}
+
+.imageContainer{
+  height: auto;
+ 
+}
+.mainImage{
+  width: 45vw;
+  height: 20vh;
+  border-radius: 10px;
+  border: 2px solid black;
+  object-fit: cover;
+}
+
+.leftSection, .rightSection{
+  position:absolute;
+  top: 100px;
+  width: 180px;
+  height: 180px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.right_left{
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.rightSection{
+  right: 20px;
+}
+#leftSection{
+  left: 20px;
+}
+
+/*===========BIGGER SCREEN SIZE ==========*/
+
+@media screen and (min-width: 700px){
+.mainImage{
+  margin-top: 5rem;
+  height: 40vh;
+}
+}
