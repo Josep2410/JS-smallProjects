@@ -11,22 +11,33 @@ const images = [
 }, 
 {
   id: 2,
-  img: "images/ok.PNG",
-  title: "me"
+  img: "images/naruto.jpg",
+  title: "naruto"
 }, 
 {
   id: 3,
-  img: "images/selfie.JPG",
-  title: "selfie"
+  img: "images/opm.webp",
+  title: "One Punch Man"
 },
 {
   id: 4,
   img: "images/tarsier.jpg",
   title: "tarsier"
+},
+{
+  id: 5,
+  img: "images/madara.jpg",
+  title: "tarsier"
+}, 
+{
+  id: 6,
+  img: "images/masterRoshi.jpg",
+  title: "masterRoshi"
 }
+
 ]
 const imagesContainer = document.querySelector("#imagesContainer");
-let randomNum = Math.floor(Math.random()*5); //for the 5 items in my array
+let randomNum = Math.floor(Math.random()*7); //for the 6 items in my array
 const leftBtn  = document.querySelector("#leftClick");
 const rightBtn  = document.querySelector("#rightClick");
 const leftSection = document.querySelector(".leftSection");
@@ -40,8 +51,10 @@ window.addEventListener("DOMContentLoaded", function(){
   }
 });
 
+window.addEventListener("keydown", keyPressed);
+
 window.addEventListener("resize", function(){
-  if(screen.width > 700){
+  if(screen.width > 1150){
     leftSection.classList.add("leftSection");
     rightSection.classList.add("rightSection");
     
@@ -63,24 +76,33 @@ function mainImage(db, number){
 }
 
 
-leftBtn.addEventListener("click", function(){
+leftBtn.addEventListener("click", leftBtnPressed);
+
+function leftBtnPressed(){
   randomNum--;
-  if(randomNum < 0 ) randomNum = 4;
+  if(randomNum < 0 ) randomNum = 6;
   mainImage(images, randomNum);
   sideImages(images, randomNum);
-})
+}
 
-rightBtn.addEventListener("click", function(){
+rightBtn.addEventListener("click", rightBtnPressed);
+function rightBtnPressed(){
   randomNum++;
-  if(randomNum > 4) randomNum = 0;
+  if(randomNum > 6) randomNum = 0;
   mainImage(images, randomNum);
   sideImages(images, randomNum);
-})
+}
 
+function keyPressed(event){
+const keyPressed = event.keyCode;
+ if(keyPressed == 37){
+  leftBtnPressed();
+ }else if(keyPressed == 39)rightBtnPressed();
+}
 
 function sideImages(db, number){
   let left = number - 1;
-  if(left < 0 ) left = 4;
+  if(left < 0 ) left = 6;
   
   leftSection.innerHTML = `<img
   class="right_left"
@@ -89,7 +111,7 @@ function sideImages(db, number){
   />`
 
   let right = number + 1;
-  if(right>4) right = 0;
+  if(right>6) right = 0;
   rightSection.innerHTML = `<img
   class="right_left"
   src=${db[right].img}

@@ -1,49 +1,66 @@
 body{
   text-align: center;
 }
+/*===================BUTTONS======================= */
 button{
   margin: 40px;
   cursor: pointer;
+  position: absolute;
+  top:70%;
 }
 
-.imageContainer{
-  height: auto;
- 
+#leftClick{
+left: 45%;
 }
+
+#rightClick{
+  left: 50%;
+}
+
+/* ================IMAGES========================= */
+img{
+  object-fit:cover;
+  transition: .2s;
+}
+
 .mainImage{
-  width: 45vw;
-  height: 20vh;
+  position: absolute;
+  width: 25vw;
+  height: 30vh;
   border-radius: 10px;
   border: 2px solid black;
-  object-fit: cover;
+  left: 38%;
+  top: 40%;
 }
+
+img:hover{
+  transform: scale(1.20);
+}
+
+
 
 .leftSection, .rightSection{
   position:absolute;
   top: 100px;
-  width: 180px;
-  height: 180px;
-  border: 2px solid black;
-  border-radius: 5px;
+  width: auto;
+  height: auto;
 }
 .right_left{
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
+  width: 160px;
+  height: 100px;
+  border: 2px solid black;
+  border-radius: 5px;
 }
 
 .rightSection{
   right: 20px;
 }
-#leftSection{
+.leftSection{
   left: 20px;
 }
 
-/*===========BIGGER SCREEN SIZE ==========*/
 
-@media screen and (min-width: 700px){
-.mainImage{
-  margin-top: 5rem;
-  height: 40vh;
-}
-}
+
+
+
+
