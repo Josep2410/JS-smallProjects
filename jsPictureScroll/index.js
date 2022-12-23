@@ -37,34 +37,19 @@ const images = [
 
 ]
 const imagesContainer = document.querySelector("#imagesContainer");
-let randomNum = Math.floor(Math.random()*7); //for the 6 items in my array
 const leftBtn  = document.querySelector("#leftClick");
 const rightBtn  = document.querySelector("#rightClick");
 const leftSection = document.querySelector(".leftSection");
 const rightSection = document.querySelector(".rightSection");
+let randomNum = Math.floor(Math.random()*7); //for the 6 items in my array
 
 
 window.addEventListener("DOMContentLoaded", function(){
   mainImage(images, randomNum);
-  if(screen.width > 700){
-    sideImages(images, randomNum);
-  }
+  sideImages(images, randomNum);
 });
 
 window.addEventListener("keydown", keyPressed);
-
-window.addEventListener("resize", function(){
-  if(screen.width > 1150){
-    leftSection.classList.add("leftSection");
-    rightSection.classList.add("rightSection");
-    
-  }else{
-    leftSection.classList.remove("leftSection");
-    rightSection.classList.remove("rightSection");
-  }
-});
-
-
 
 // randomly select one of the items in the array and display its image
 function mainImage(db, number){ 
@@ -75,8 +60,8 @@ function mainImage(db, number){
 />`
 }
 
-
 leftBtn.addEventListener("click", leftBtnPressed);
+rightBtn.addEventListener("click", rightBtnPressed);
 
 function leftBtnPressed(){
   randomNum--;
@@ -85,7 +70,6 @@ function leftBtnPressed(){
   sideImages(images, randomNum);
 }
 
-rightBtn.addEventListener("click", rightBtnPressed);
 function rightBtnPressed(){
   randomNum++;
   if(randomNum > 6) randomNum = 0;

@@ -21,6 +21,7 @@ left: 45%;
 img{
   object-fit:cover;
   transition: .2s;
+  cursor: pointer;
 }
 
 .mainImage{
