@@ -1,4 +1,3 @@
-let array = new Array(10);
 const images = [ 
   {
     id: 0,
@@ -54,8 +53,16 @@ window.addEventListener('DOMContentLoaded', function(){
   mainImage(images, randomNum);
 });
 function mainImage(db, number){
-  document.body.innerHTML = `<img id="fourthImage" src=${db[number].img} alt=${db[number].title} />`
+  document.body.innerHTML = `<img id="zerothImage" src="${db[((number-4)+9)%9].img}" alt="${db[((number-4)+9)%9].title}" />
+  <img id="firstImage" src="${db[((number-3)+9)%9].img}" alt="${db[((number-3)+9)%9].title}" />
+  <img id="secondImage" src="${db[((number-2)+9)%9].img}" alt="${db[((number-2)+9)%9].title}" />
+  <img id="thirdImage" src="${db[((number-1)+9)%9].img}" alt="${db[((number-1)+9)%9].title}" />
+  <img id="fourthImage" src="${db[number].img}" alt="${db[number].title}" />
+  <img id="fifthImage" src="${db[(number+1)%9].img}" alt="${db[(number+1)%9].title}" />
+  <img id="sixthImage" src="${db[(number+2)%9].img}" alt="${db[(number+2)%9].title}" />
+  <img id="seventhImage" src="${db[(number+3)%9].img}" alt="${db[(number+3)%9].title}" />
+  <img id="eigthImage" src="${db[(number+4)%9].img}" alt="${db[(number+4)%9].title}" />`
 }
-
+console.log(randomNum);
 
   
