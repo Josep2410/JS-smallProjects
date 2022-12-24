@@ -15,60 +15,60 @@ img{
 img:hover{
   transform: scale(1.20);
 }
-#minusImage{
+#zerothImage{
   top: 20px;
   left: 420px;
   width: 9vw;
   height: 9vh;
 }
-#zerothImage{
+#firstImage{
   top: 120px;
   left: 200px;
   width: 12vw;
   height: 12vh;
 }
-#firstImage{
+#secondImage{
   top: 270px;
   left: 80px;
   width: 16vw;
   height: 16vh;
 }
-#secondImage{
+#thirdImage{
   top: 450px;
   left: 250px;
   width: 19vw;
   height: 19vh;
 }
 
-#mainImage{
+#fourthImage{
   top: 550px;
   left: 580px;
   width: 25vw;
   height: 25vh;
 }
-#mainImage:hover{
+#fourthImage:hover{
   box-shadow: 0 0  black;
   filter: blur(0px);
 }
-#fourthImage{
+#fifthImage{
   top: 450px;
   right: 250px;
   width: 19vw;
   height: 19vh;
 }
-#fifthImage{
+#sixthImage{
     top: 270px;
     right: 80px;
     width: 16vw;
     height: 16vh;
 }
-#sixthImage{
+#seventhImage{
   top: 120px;
   right: 200px;
   width: 12vw;
   height: 12vh;
 }
-#seventhImage{
+#eigthImage{
   top: 20px;
   right: 420px;
   width: 9vw;
