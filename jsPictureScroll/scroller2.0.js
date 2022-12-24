@@ -29,31 +29,36 @@ const images = [
     id: 5,
     img: "images/madara.jpg",
     title: "madara"
-  }, 
+  },  
   {
-    id: 6,
-    img: "images/masterRoshi.jpg",
-    title: "masterRoshi"
-  }, 
-  {
-    id: 7 , 
+    id: 6 , 
     img: "images/gojo.PNG", 
     title: "Gojo"
   },
   {
-    id: 8 , 
+    id: 7 , 
     img: "images/tobirama.webp", 
     title: "tobirama"
   },
   {
-    id: 9,
+    id: 8,
     img: "images/haikyu.jpg",
     title: "haikyu"
   }
   
   ]
 
-let randomNum = Math.floor(Math.random()*10); 
+let randomNum = Math.floor(Math.random()*9); //for the 9 items in Images[]
+
+window.addEventListener('DOMContentLoaded', function(){
+  mainImage(images, randomNum);
+});
+function mainImage(db, number){
+  const mainImg = document.createElement("img");
+  mainImg.setAttribute("id", "fourthImage");
+  mainImg.src = db[number].img;
+  document.body.appendChild(mainImg);
+}
 
 
   
