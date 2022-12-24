@@ -1,0 +1,76 @@
+
+
+
+
+/* ================IMAGES======================== */
+img{
+  cursor: pointer;
+  transition: .4s;
+  border-radius: 10px;
+  box-shadow: 0 0 20px  black;
+  filter: blur(5px);
+  position: absolute;
+  
+}
+img:hover{
+  transform: scale(1.20);
+}
+#minusImage{
+  top: 20px;
+  left: 420px;
+  width: 9vw;
+  height: 9vh;
+}
+#zerothImage{
+  top: 120px;
+  left: 200px;
+  width: 12vw;
+  height: 12vh;
+}
+#firstImage{
+  top: 270px;
+  left: 80px;
+  width: 16vw;
+  height: 16vh;
+}
+#secondImage{
+  top: 450px;
+  left: 250px;
+  width: 19vw;
+  height: 19vh;
+}
+
+#mainImage{
+  top: 550px;
+  left: 580px;
+  width: 25vw;
+  height: 25vh;
+}
+#mainImage:hover{
+  box-shadow: 0 0  black;
+  filter: blur(0px);
+}
+#fourthImage{
+  top: 450px;
+  right: 250px;
+  width: 19vw;
+  height: 19vh;
+}
+#fifthImage{
+    top: 270px;
+    right: 80px;
+    width: 16vw;
+    height: 16vh;
+}
+#sixthImage{
+  top: 120px;
+  right: 200px;
+  width: 12vw;
+  height: 12vh;
+}
+#seventhImage{
+  top: 20px;
+  right: 420px;
+  width: 9vw;
+  height: 9vh;
+}
