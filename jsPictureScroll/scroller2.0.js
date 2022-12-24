@@ -54,10 +54,7 @@ window.addEventListener('DOMContentLoaded', function(){
   mainImage(images, randomNum);
 });
 function mainImage(db, number){
-  const mainImg = document.createElement("img");
-  mainImg.setAttribute("id", "fourthImage");
-  mainImg.src = db[number].img;
-  document.body.appendChild(mainImg);
+  document.body.innerHTML = `<img id="fourthImage" src=${db[number].img} alt=${db[number].title} />`
 }
 
 
