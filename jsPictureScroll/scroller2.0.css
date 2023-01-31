@@ -45,10 +45,13 @@ img:hover{
   left: 580px;
   width: 25vw;
   height: 25vh;
+  filter: blur(1px);
+  z-index: 100;
 }
 #fourthImage:hover{
   box-shadow: 0 0  black;
   filter: blur(0px);
+ 
 }
 #fifthImage{
   top: 450px;

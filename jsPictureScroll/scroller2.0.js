@@ -49,10 +49,24 @@ const images = [
 
 let randomNum = Math.floor(Math.random()*9); //for the 9 items in Images[]
 
+
+const values = [[20,420, 9], [120, 200, 12], [270, 80, 16], [450,250, 19], [550, 580, 25]];  //values: [top,left/right, width, height] width = height
 window.addEventListener('DOMContentLoaded', function(){
-  mainImage(images, randomNum);
-});
-function mainImage(db, number){
+  addImages(images, randomNum);
+}); 
+window.addEventListener('keydown', changeDirection);
+function changeDirection(event){
+  if(event.keyCode == 37 ){
+    slideLeft();
+  }else if(event.keyCode == 39){
+    
+  }
+}
+
+function slideLeft(){
+  document.getElementById("fourthImage").style.top = 1 + 'px';
+}
+function addImages(db, number){
   document.body.innerHTML = `<img id="zerothImage" src="${db[((number-4)+9)%9].img}" alt="${db[((number-4)+9)%9].title}" />
   <img id="firstImage" src="${db[((number-3)+9)%9].img}" alt="${db[((number-3)+9)%9].title}" />
   <img id="secondImage" src="${db[((number-2)+9)%9].img}" alt="${db[((number-2)+9)%9].title}" />
@@ -62,7 +76,11 @@ function mainImage(db, number){
   <img id="sixthImage" src="${db[(number+2)%9].img}" alt="${db[(number+2)%9].title}" />
   <img id="seventhImage" src="${db[(number+3)%9].img}" alt="${db[(number+3)%9].title}" />
   <img id="eigthImage" src="${db[(number+4)%9].img}" alt="${db[(number+4)%9].title}" />`
+
 }
-console.log(randomNum);
+
+
+
+
 
   
