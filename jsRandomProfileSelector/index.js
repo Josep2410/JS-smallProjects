@@ -12,32 +12,37 @@ const items = [
 
 ]
 
-const leftBtn = document.querySelector(".leftBtn");
-const rightBtn = document.querySelector(".rightBtn");
-const card = document.querySelector(".card");
-
-const myImg = document.querySelector('.myImg')
-const id = document.querySelector("#name");
-const company = document.querySelector("#company");
-const descriptor = document.querySelector(".descriptor");
 let randNum = Math.floor(Math.random()*5);
+const cardBody = document.querySelector(".card");
 
 displayCard(randNum, items)
 
 function displayCard(num, arr){
-  console.log(num)
-  myImg.src = arr[num].img
-  id.textContent = arr[num].name;
- descriptor.textContent = arr[num].description;
- company.textContent = arr[num].company;
+  console.log(randNum)
+  cardBody.innerHTML = ` <div class="card">
+  <img class="myImg" alt="" src="${arr[num].img}" />
+  <div class="titles">
+    <p id="name">${arr[num].name}</p>
+    <p id="company">${arr[num].company}</p>
+  </div>
+  <div class="descriptor">
+  ${arr[num].description}
+  </div>
+</div>
+`
+;
 }
+
+
+const leftBtn = document.querySelector(".leftBtn");
+const rightBtn = document.querySelector(".rightBtn");
 
 leftBtn.addEventListener("click", function(){
   randNum--;
   if(randNum< 0 ){
     randNum = items.length - 1;
   }
-  displayCard(randNum, items)
+  displayCard(randNum, items);
 })
 
 rightBtn.addEventListener("click", function(){
@@ -45,6 +50,9 @@ rightBtn.addEventListener("click", function(){
   if(randNum> items.length - 1 ){
     randNum = 0;
   }
-  displayCard(randNum, items)
+  displayCard(randNum, items);
 })
+
+
+
 
