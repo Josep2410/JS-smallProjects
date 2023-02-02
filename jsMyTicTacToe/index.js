@@ -20,8 +20,13 @@ let options = [Math.random(),Math.random(),
           options[item.getAttribute("cellIndex")] = item.textContent;
           availCells--;
           console.log(availCells);
-          if(availCells ===0 && !winner) endGame();
-          checkWinner();
+          if(availCells ===0 && !winner){
+            endGame();
+          } 
+          else{
+            checkWinner();
+          }
+         
           winner? endGame(): changePlayer();  
         })
     })
@@ -47,6 +52,7 @@ restartBtn.addEventListener("click", function(){
   currentPlayer = 'X';
   availCells = 9;
   displayPlayer();
+  winner= false;
   gamemode = true;
   allCells.forEach(item =>{
     item.textContent = "";
@@ -55,9 +61,10 @@ restartBtn.addEventListener("click", function(){
 
 function endGame(){
   gamemode = false;
-  if(availCells ===0){
+  if(availCells ===0 && !winner){
     playerStatus.textContent = `Draw!`
   }else{
+    
     playerStatus.textContent = `Game Over! Player ${currentPlayer} Wins`
   }
 
