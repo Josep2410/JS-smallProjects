@@ -1,0 +1,6 @@
+#emailImg, #passwordIcon{
+  height: 25px;
+  position: absolute;
+  top:12px;
+  left: 10px;
+}
