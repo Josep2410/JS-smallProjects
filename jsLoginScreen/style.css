@@ -4,8 +4,10 @@ body{
   font-family: Verdana, sans-serif;
 }
 main{
-  margin-left: 10px;
-  
+  max-width: 360px;
+  margin: auto;
+  height: 650px;
+  position: relative;
 }
 
 h1{
@@ -21,7 +23,7 @@ h5{
 
 section{
   margin-top: 15px;
-  width: 85%;
+  max-width: auto;
   height: 3rem;
   border-bottom: 1px solid rgb(202, 201, 201);
   margin-left: 15px;
@@ -36,7 +38,7 @@ section:hover{
 .email-bar{
   margin-top: 50px;
 }
-#email, #password{
+#email, #pwd{
   position: absolute;
   top: 17px;
   left: 45px;
@@ -88,11 +90,14 @@ h6{
   cursor: pointer;
   position: absolute;
   bottom: 10px;
-  left:100px;
+  left: 100px;
   color: rgb(187, 185, 185);
 }
 
 #signUp{
   color:orange;
   font-size:12px;
+}
+#signUp:active{
+  color:rgb(197, 128, 1);
 }
