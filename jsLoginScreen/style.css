@@ -69,10 +69,11 @@ section:hover{
   background: rgb(240,227,95);
   background: linear-gradient(90deg, rgba(240,227,95,1) 0%, rgba(244,191,62,1) 51%, rgba(255,186,1,1) 100%);
 }
-#loginBtn:active{
+#loginBtn:hover{
   box-shadow: 2px 3px 10px rgb(220, 218, 218);
   transform: scale(1.1);
 }
+
 #text{
   position: absolute;
   top: 15px;
@@ -100,4 +101,13 @@ h6{
 }
 #signUp:active{
   color:rgb(197, 128, 1);
+}
+
+
+/* LOGGED IN SCREEN */
+
+p{
+  text-align: center;
+  margin-top: 50% ;
+  color: green;
 }
