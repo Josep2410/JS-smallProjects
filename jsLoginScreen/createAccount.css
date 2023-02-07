@@ -1,0 +1,115 @@
+/* CSS is written in-order to the layout of the design. */
+
+body{
+  font-family: Verdana, sans-serif;
+}
+main{
+  max-width: 360px;
+  margin: auto;
+  height: 650px;
+  position: relative;
+}
+
+#createAccountText{
+  margin-top: 40%;
+  margin-bottom: 10px;
+}
+h5{
+  margin-top: 0px;
+  margin-left: 5px;
+  color: rgb(138, 138, 138);
+}
+
+
+section{
+  margin-top: 15px;
+  max-width: auto;
+  height: 3rem;
+  border-bottom: 1px solid rgb(202, 201, 201);
+  margin-left: 15px;
+  transition-duration: .2s;
+  position: relative;
+}
+section:hover{
+  box-shadow: 2px 3px 10px rgb(220, 218, 218);
+  transform: scale(1.02);
+}
+
+
+#email, #pwd, #fullNameBar, #pwdConfirm{
+  position: absolute;
+  top: 17px;
+  left: 45px;
+  border-style: none;
+  outline: none;
+  font-size: 12px;
+}
+
+
+
+.password-bar , .email-bar{
+  margin-top: 40px;
+}
+
+#loginBtn{
+  cursor: pointer;
+  transition-duration: .2s;
+  position: relative;
+  font-weight: 600;
+  font-size: 11px;
+  margin-left: 62%;
+  border-radius: 20px;
+  width: 100px;
+  margin-top: 40px;
+  color: white;
+  border-style: none;
+  height: 40px;
+  background: rgb(240,227,95);
+  background: linear-gradient(90deg, rgba(240,227,95,1) 0%, rgba(244,191,62,1) 51%, rgba(255,186,1,1) 100%);
+}
+#loginBtn:hover{
+  box-shadow: 2px 3px 10px rgb(220, 218, 218);
+  transform: scale(1.1);
+}
+
+#text{
+  position: absolute;
+  top: 15px;
+  left: 17px;
+}
+#arrow{
+  font-size:20px;
+  position: absolute;
+  top: 8px;
+  right: 12px;
+}
+
+
+h6{
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  left: 100px;
+  color: rgb(187, 185, 185);
+}
+
+#signUp{
+  color:orange;
+  font-size:12px;
+}
+#signUp:active{
+  color:rgb(197, 128, 1);
+}
+
+a{
+  text-decoration: none;
+}
+
+
+/* SIGN UP SCREEN */
+
+p{
+  text-align: center;
+  margin-top: 50% ;
+  color: green;
+}

@@ -1,6 +1,14 @@
-#emailImg, #passwordIcon{
+#emailImg, #passwordIcon, #fullNameIcon{
   height: 25px;
   position: absolute;
   top:12px;
   left: 10px;
+}
+
+#backArrow{
+  position: absolute;
+  height: 25px;
+  top:45px;
+  left: 60px;
+  
 }
