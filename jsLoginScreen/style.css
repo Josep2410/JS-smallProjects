@@ -10,7 +10,7 @@ main{
   position: relative;
 }
 
-h1{
+#loginText{
   margin-top: 60%;
   margin-bottom: 10px;
 }
@@ -104,10 +104,14 @@ h6{
 }
 
 
+a{
+  text-decoration: none;
+}
+
 /* LOGGED IN SCREEN */
 
 p{
   text-align: center;
-  margin-top: 50% ;
+  margin-top: 300px ;
   color: green;
 }
