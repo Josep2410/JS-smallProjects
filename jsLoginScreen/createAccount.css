@@ -38,7 +38,7 @@ section:hover{
 }
 
 
-#email, #pwd, #fullNameBar, #pwdConfirm{
+#email, #pwd, #fullName, #pwdConfirm{
   position: absolute;
   top: 17px;
   left: 45px;
@@ -49,11 +49,11 @@ section:hover{
 
 
 
-.password-bar , .email-bar{
+.password-bar , .email-bar , .fullName-bar, .ConfirmPassword-bar{
   margin-top: 40px;
 }
 
-#loginBtn{
+#signUpBtn{
   cursor: pointer;
   transition-duration: .2s;
   position: relative;
@@ -69,7 +69,7 @@ section:hover{
   background: rgb(240,227,95);
   background: linear-gradient(90deg, rgba(240,227,95,1) 0%, rgba(244,191,62,1) 51%, rgba(255,186,1,1) 100%);
 }
-#loginBtn:hover{
+#signUpBtn:hover{
   box-shadow: 2px 3px 10px rgb(220, 218, 218);
   transform: scale(1.1);
 }
