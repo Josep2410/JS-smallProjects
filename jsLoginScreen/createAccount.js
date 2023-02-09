@@ -3,29 +3,34 @@ const fullName = document.querySelector("#fullName");
 const email = document.querySelector("#email");
 const pwd = document.querySelector("#pwd");
 const pwdConfirm = document.querySelector("#pwdConfirm");
-
+const mainElement = document.querySelector("#mainElement")
 
 signUpBtn.addEventListener("click", validateInput);
 
 //Check User's inputs
 function validateInput(){
-  let credentials = true;
-  if(!fullName.value.includes(" ")) {
-    invalidInput("name");
+  if(fullName.value.includes(" ") && email.value.includes("@") && (pwd.value === pwdConfirm.value)) createCredentials();
+  else{
+    if(!fullName.value.includes(" ")) {
+      invalidInput("name");
+    }
+    if(!email.value.includes("@")){
+      invalidInput("email")
+    }
+    if((pwd.value !== pwdConfirm.value) || pwd.value ===""){
+      invalidInput("password")
+    } 
   }
-  if(!email.value.includes("@")){
-    invalidInput("email")
-  }
-  if((pwd.value !== pwdConfirm.value) || pwd.value ===""){
-    invalidInput("password")
-  } 
-  
-  if(credentials) createCredentials() //If no incorrect input
 }
 
 function invalidInput(string){
-  credentials = false;
+  let invalidOpt = document.createElement("p");
+  invalidOpt.setAttribute('id', 'invalids');
+  invalidOpt.textContent = `\u2717 Invalid ${string}`
+  invalidOpt.style.color= 'red';
+  mainElement.append(invalidOpt);
   console.log(`Invalid ${string}`)
+  console.log(invalidOpt.getAttribute("id"))
 }
 
 function createCredentials(){
