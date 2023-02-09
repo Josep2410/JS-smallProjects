@@ -108,10 +108,18 @@ a{
 }
 
 
-/* SIGN UP SCREEN */
+/* Account Created SCREEN */
 
 p{
   text-align: center;
-  margin-top: 50% ;
+  margin-top: 35% ;
   color: green;
+}
+
+#logIn{
+  transition: .2s;
+}
+
+#logIn:hover{
+  transform: scale(1.2);
 }
