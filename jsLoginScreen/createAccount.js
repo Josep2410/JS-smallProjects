@@ -43,19 +43,21 @@ function validateInput(){
     if(newAccount)accountCreated(newAccount.name, newAccount.email, newAccount.password);
   } 
   else{
-    if(!fullName.value.includes(" ")) {
+    feebackBox.innerHTML = "";
+    if(!fullName.value.includes(" ") || !fullName.value ) {
       invalidInput("name");
     }
-    if(!email.value.includes("@")){
+    if(!email.value.includes("@") || !email.value){
       invalidInput("email")
     }
-    if((pwd.value !== pwdConfirm.value) || pwd.value ===""){
+    if((pwd.value !== pwdConfirm.value) || pwd.value ==="" ){
       invalidInput("password")
     } 
   }
 }
 
 function invalidInput(string){
+ 
   let invalidOpt = document.createElement("p");
   invalidOpt.setAttribute('id', 'invalids');
   invalidOpt.textContent = `\u2717 Invalid ${string}`
