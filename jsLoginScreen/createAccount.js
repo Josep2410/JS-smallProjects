@@ -4,7 +4,7 @@ const fullName = document.querySelector("#fullName");
 const email = document.querySelector("#email");
 const pwd = document.querySelector("#pwd");
 const pwdConfirm = document.querySelector("#pwdConfirm");
-const mainElement = document.querySelector("#mainElement");
+const feebackBox = document.querySelector("#feedback");
 class Database{
   constructor(){
     this.array = [];
@@ -60,25 +60,21 @@ function invalidInput(string){
   invalidOpt.setAttribute('id', 'invalids');
   invalidOpt.textContent = `\u2717 Invalid ${string}`
   invalidOpt.style.color= 'red';
-  mainElement.append(invalidOpt);
-  console.log(`Invalid ${string}`)
-  console.log(invalidOpt.getAttribute("id"))
+  feebackBox.append(invalidOpt);
 }
 
 //create an Account object when all input has been verified
-function Account(fullName, email, password, id){
+function Account(fullName, email, password){
   this.name = fullName;
   this.email = email;
   this.password = password;
- 
 }
 
 
 //Change document.body to show the account was created
 function accountCreated(name, email, pwd){
   console.log(`Credentials created: \n Full Name: ${name} \n Email: ${email} \n Password: ${pwd}`);
-  document.body.innerHTML =
-  `<p style = "font-size: 20px">Account Created \u2713</p> <a href="index.html"> 
-    <p id="logIn" style = "color: orange ; margin-top:40px; margin-left:-10px">Log in</p></a>`;
+  feebackBox.innerHTML =
+  `<p style = "font-size: 18px; color: green; text-align: center; padding-top: 50px">Account Created \u2713</p> `;
 }
 

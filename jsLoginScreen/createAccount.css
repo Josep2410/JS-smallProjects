@@ -53,6 +53,14 @@ section:hover{
   margin-top: 40px;
 }
 
+#feedback{
+  text-align: left;
+  margin-top: 20px;
+  width: 100%;
+  height: 150px;
+  padding-left: 20px;
+}
+
 #signUpBtn{
   cursor: pointer;
   transition-duration: .2s;
@@ -114,11 +122,6 @@ a{
 
 /* Account Created SCREEN */
 
-p{
-  text-align: center;
- margin-top: 30vh;
-  color: green;
-}
 
 #logIn{
   transition: .2s;
