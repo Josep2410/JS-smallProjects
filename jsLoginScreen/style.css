@@ -3,10 +3,10 @@
 body{
   font-family: Verdana, sans-serif;
 }
-main{
+.loginScreen{
   max-width: 360px;
   margin: auto;
-  height: 70vh;
+  height: 60vh;
   position: relative;
 }
 
