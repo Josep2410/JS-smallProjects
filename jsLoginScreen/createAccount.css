@@ -103,11 +103,11 @@ h6{
   color: rgb(187, 185, 185);
 }
 
-#signUp{
+#signIn{
   color:orange;
   font-size:12px;
 }
-#signUp:active{
+#signIn:active{
   color:rgb(197, 128, 1);
 }
 
