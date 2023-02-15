@@ -1,4 +1,4 @@
-import {hello} from "./index.js"
+
 //Referencing html elements
 const signUpBtn = document.querySelector("#signUpBtn");
 const fullName = document.querySelector("#fullName");
@@ -7,6 +7,8 @@ const pwd = document.querySelector("#pwd");
 const pwdConfirm = document.querySelector("#pwdConfirm");
 const feebackBox = document.querySelector("#feedback");
 const signIn = document.querySelector("#signIn")
+
+
 
  class Database{
   constructor(){
@@ -20,9 +22,9 @@ const signIn = document.querySelector("#signIn")
       console.log(account);
     }
   }
-  searchMember(string){
+  existingMember(email, password){
     for(let account of this.array){
-      if(account.name === string) return true;
+      if(account.email === email && account.password === password) return true;
     }
     return false;
   }
@@ -30,6 +32,7 @@ const signIn = document.querySelector("#signIn")
   getNumberOfMembers(){
     return this.array.length;
   }
+
 }
 let db = new Database();
 
@@ -44,8 +47,13 @@ signIn.addEventListener("click", function(){
   <h6>Don't have an account? <a href="createAccount.html"> <span id="signUp">Sign up</span></h6></a>
   </main> `
   const logIn = document.querySelector("#loginBtn");
-logIn.addEventListener("click", function(){
-  hello();
+  
+  const emailBar = document.querySelector("#email");
+  const passwordBar = document.querySelector("#pwd");
+  logIn.addEventListener("click", function(){
+    console.log(emailBar.value, passwordBar.value);
+   if(db.existingMember(emailBar.value, passwordBar.value)) console.log("Login Success")
+   else(console.log("Failed login"))  ;
 })
 })
 
@@ -55,7 +63,6 @@ function validateInput(){
     let newAccount =  new Account(fullName.value, email.value, pwd.value);
    
     db.newMember(newAccount);
-   // db.displayMembers();
     console.log(`Number of members: ${db.getNumberOfMembers()}`)
     if(newAccount)accountCreated(newAccount.name, newAccount.email, newAccount.password);
   } 
@@ -96,4 +103,7 @@ function accountCreated(name, email, pwd){
   feebackBox.innerHTML =
   `<p style = "font-size: 18px; color: green; text-align: center; padding-top: 50px">Account Created \u2713</p> `;
 }
+
+
+
 
