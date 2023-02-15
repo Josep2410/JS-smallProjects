@@ -1,3 +1,4 @@
+import {hello} from "./index.js"
 //Referencing html elements
 const signUpBtn = document.querySelector("#signUpBtn");
 const fullName = document.querySelector("#fullName");
@@ -5,7 +6,9 @@ const email = document.querySelector("#email");
 const pwd = document.querySelector("#pwd");
 const pwdConfirm = document.querySelector("#pwdConfirm");
 const feebackBox = document.querySelector("#feedback");
-class Database{
+const signIn = document.querySelector("#signIn")
+
+ class Database{
   constructor(){
     this.array = [];
   }
@@ -31,6 +34,20 @@ class Database{
 let db = new Database();
 
 signUpBtn.addEventListener("click", validateInput);
+signIn.addEventListener("click", function(){
+  document.body.innerHTML = `<main id="loginScreen">
+  <h1 id="loginText">Login</h1>
+  <h5>Please sign in to continue.</h5>
+  <section class="email-bar"><img id="emailImg" src="images/emailIcon.png" alt="" /><input id="email" type="input" placeholder="EMAIL"></section>
+  <section class="password-bar"><img id="passwordIcon"src="images/passwordIcon.png" alt=""><input id="pwd"type="password" placeholder="PASSWORD"></section>
+  <button id="loginBtn"><span id="text">LOGIN </span><span id="arrow">&#8594</span></button>
+  <h6>Don't have an account? <a href="createAccount.html"> <span id="signUp">Sign up</span></h6></a>
+  </main> `
+  const logIn = document.querySelector("#loginBtn");
+logIn.addEventListener("click", function(){
+  hello();
+})
+})
 
 //Check User's inputs
 function validateInput(){
