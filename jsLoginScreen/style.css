@@ -90,7 +90,7 @@ section:hover{
 h6{
   cursor: pointer;
   position: absolute;
-  bottom: 10px;
+  bottom: 50px;
   left: 100px;
   color: rgb(187, 185, 185);
 }

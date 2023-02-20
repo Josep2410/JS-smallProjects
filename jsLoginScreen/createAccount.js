@@ -44,6 +44,7 @@ signIn.addEventListener("click", function(){
   <section class="email-bar"><img id="emailImg" src="images/emailIcon.png" alt="" /><input id="email" type="input" placeholder="EMAIL"></section>
   <section class="password-bar"><img id="passwordIcon"src="images/passwordIcon.png" alt=""><input id="pwd"type="password" placeholder="PASSWORD"></section>
   <button id="loginBtn"><span id="text">LOGIN </span><span id="arrow">&#8594</span></button>
+  <div id="feedback"></div>
   <h6>Don't have an account? <a href="createAccount.html"> <span id="signUp">Sign up</span></h6></a>
   </main> `
   const logIn = document.querySelector("#loginBtn");
@@ -52,8 +53,13 @@ signIn.addEventListener("click", function(){
   const passwordBar = document.querySelector("#pwd");
   logIn.addEventListener("click", function(){
     console.log(emailBar.value, passwordBar.value);
-   if(db.existingMember(emailBar.value, passwordBar.value)) console.log("Login Success")
-   else(console.log("Failed login"))  ;
+   if(db.existingMember(emailBar.value, passwordBar.value)){
+    document.body.innerHTML =
+  `<p style = "font-size: 18px; color: green; text-align: center; padding-top: 250px">Login Successful \u2713</p> `;
+   } 
+   else{
+    document.querySelector("#feedback").innerHTML = '<p style = "font-size: 18px; color: red; text-align: center; padding-top: 50px">\u2717 Login Failed </p> ;'
+   }  ;
 })
 })
 
